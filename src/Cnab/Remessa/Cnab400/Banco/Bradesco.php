@@ -166,11 +166,26 @@ class Bradesco extends AbstractRemessa implements RemessaContract
         }
 
         $this->add(1, 1, '1');
-        $this->add(2, 6, '');
+        $this->add(1, 1, '1');
+        $this->add(2, 2, '0');
+        $this->add(3, 3, '0');
+        $this->add(4, 4, '0');
+        $this->add(5, 5, '0');
+        $this->add(6, 6, '0');
         $this->add(7, 7, '');
-        $this->add(8, 12, '');
-        $this->add(13, 19, '');
-        $this->add(20, 20, '');
+        $this->add(8, 8, '0');
+        $this->add(9, 9, '0');
+        $this->add(10, 10, '0');
+        $this->add(11,11, '0');
+        $this->add(12,12, '0');
+        $this->add(13,13, '0');
+        $this->add(14,14, '0');
+        $this->add(15,15, '0');
+        $this->add(16,16, '0');
+        $this->add(17,17, '0');
+        $this->add(18,18, '0');
+        $this->add(19,19, '0');
+        // $this->add(20, 20, '');
         $this->add(21, 21, '0');
         $this->add(22, 24, Util::formatCnab('9', $this->getCarteira(), 3));
         $this->add(25, 29, Util::formatCnab('9', $this->getAgencia(), 5));
@@ -183,7 +198,7 @@ class Bradesco extends AbstractRemessa implements RemessaContract
         $this->add(71, 82, Util::formatCnab('9', $boleto->getNossoNumero(), 12));
         $this->add(83, 92, Util::formatCnab('9', 0, 10, 2));
         $this->add(93, 93, '2'); // 1 = Banco emite e Processa o registro. 2 = Cliente emite e o Banco somente processa o registro
-        $this->add(94, 94, ''); // N= Não registra na cobrança. Diferente de N registra e emite Boleto.
+        $this->add(94, 94, 'N'); // N= Não registra na cobrança. Diferente de N registra e emite Boleto.
         $this->add(95, 104, '');
         $this->add(105, 105, '');
         $this->add(106, 106, '2'); // 1 = emite aviso, e assume o endereço do Pagador constante do Arquivo-Remessa; 2 = não emite aviso;
@@ -231,6 +246,47 @@ class Bradesco extends AbstractRemessa implements RemessaContract
         $this->add(327, 334, Util::formatCnab('9', Util::onlyNumbers($boleto->getPagador()->getCep()), 8));
         $this->add(335, 394, Util::formatCnab('X', $boleto->getSacadorAvalista() ? $boleto->getSacadorAvalista()->getNome() : '', 60));
         $this->add(395, 400, Util::formatCnab('9', $this->iRegistros + 1, 6));
+        $this->add(336, 336, 'D');
+        $this->add(337, 337, 'E');
+        $this->add(338, 338, 'P');
+        $this->add(339, 339, 'O');
+        $this->add(340, 340, 'S');
+        $this->add(341, 341, 'I');
+        $this->add(342, 342, 'T');
+        $this->add(343, 343, 'O');
+        $this->add(344, 344, 'S');
+        $this->add(345, 345, '');
+        $this->add(346, 346, 'N');
+        $this->add(347, 347, 'A'); 
+        $this->add(348, 348, 'O'); 
+        $this->add(349, 349, ''); 
+        $this->add(350, 350, 'S'); 
+        $this->add(351, 351, 'E'); 
+        $this->add(352, 352, 'R'); 
+        $this->add(353, 353, 'A'); 
+        $this->add(354, 354, 'O'); 
+        $this->add(355, 355, ''); 
+        $this->add(356, 356, 'A'); 
+        $this->add(357, 357, 'C'); 
+        $this->add(358, 358, 'E'); 
+        $this->add(359, 359, 'I'); 
+        $this->add(360, 360, 'T'); 
+        $this->add(361, 361, 'O'); 
+        $this->add(362, 362, 'S'); 
+        $this->add(363, 363, ''); 
+        $this->add(364, 364, 'C'); 
+        $this->add(365, 365, 'O'); 
+        $this->add(366, 366, 'M'); 
+        $this->add(367, 367, 'O');
+        $this->add(368, 368, '');
+        $this->add(369, 369, 'Q');
+        $this->add(370, 370, 'U');
+        $this->add(371, 371, 'I');
+        $this->add(372, 372, 'T');
+        $this->add(373, 373, 'A');
+        $this->add(374, 374, 'C');
+        $this->add(375, 375, 'A');
+        $this->add(376, 376, 'O');
         if ($chaveNfe) {
             $this->add(401, 444, Util::formatCnab('9', $chaveNfe, 44));
         }
